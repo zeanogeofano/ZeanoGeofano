@@ -1,0 +1,24 @@
+# Jekyll
+_bygone/
+.cache/
+_site/
+.sass-cache/
+.jekyll-cache/
+log/
+*.gem
+*.rbc
+*.sassc
+*.sass-cache/
+*.scssc
+vendor/bundle/
+
+# Ruby
+/.bundle/
+/log/
+/tmp/
+*.gem
+*.rbc
+*.sassc
+*.sass-cache/
+*.scssc
+vendor/bundle/
