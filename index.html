@@ -5,36 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Zeano Finance Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #05070a;
-            --card: #11141b;
-            --accent: #3b82f6; /* Blue modern */
-            --up: #10b981;
-            --down: #ef4444;
-            --text: #ffffff;
-            --text-dim: #94a3b8;
-            --border: rgba(255, 255, 255, 0.08);
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="profile-section">
+            <div class="avatar">Z</div>
+            <div>
+                <div class="user-name">Zeano Geofano</div>
+                <div class="user-status">Pro Trader & Developer</div>
+            </div>
+        </div>
+        <div class="time-badge" id="time">00:00:00</div>
+    </div>
+
+    <div class="main-card">
+        <div class="card-label">Estimasi Saldo Portofolio</div>
+        <div class="balance">$12,840.50</div>
+        <div class="profit">▲ +3.42% (Today)</div>
+    </div>
+
+    <div class="section-title">
+        <span>US Market Watchlist</span>
+        <span class="live-tag">● LIVE</span>
+    </div>
+
+    <div class="widget-container">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+            {
+              "colorTheme": "dark",
+              "dateRange": "12M",
+              "showChart": true,
+              "locale": "id",
+              "width": "100%",
+              "height": "450",
+              "largeChartHeight": -1,
+              "isTransparent": true,
+              "showSymbolLogo": true,
+              "showFloatingTooltip": false,
+              "tabs": [
+                {
+                  "title": "Saham AS",
+                  "symbols": [
+                    { "s": "NASDAQ:AAPL", "d": "Apple" },
+                    { "s": "NASDAQ:TSLA", "d": "Tesla" },
+                    { "s": "NASDAQ:NVDA", "d": "NVIDIA" },
+                    { "s": "NASDAQ:MSFT", "d": "Microsoft" },
+                    { "s": "NASDAQ:AMZN", "d": "Amazon" },
+                    { "s": "NASDAQ:GOOGL", "d": "Google" }
+                  ]
+                },
+                {
+                  "title": "Commodities",
+                  "symbols": [
+                    { "s": "OANDA:XAUUSD", "d": "Gold / Emas" },
+                    { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" }
+                  ]
+                }
+              ]
+            }
+            </script>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active"><span>🏠</span><span>Home</span></a>
+        <a href="#" class="nav-item"><span>📊</span><span>Market</span></a>
+        <a href="#" class="nav-item"><span>🌳</span><span>Skills</span></a>
+        <a href="#" class="nav-item"><span>⚙️</span><span>Settings</span></a>
+    </nav>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').innerText = now.toLocaleTimeString();
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            padding: 20px 20px 100px 20px; /* Padding bawah untuk Nav */
-        }
-
-        /* --- TOP BAR --- */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .profile-section { display: flex; align-items: center; gap: 12px; }
-        .avatar {
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>        .avatar {
             width: 40px;
             height: 40px;
             background: linear-gradient(45deg, #3b82f6, #8b5cf6);
