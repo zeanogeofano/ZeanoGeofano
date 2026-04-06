@@ -1,40 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Overview - ZeanoGeofano</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>Zeano Finance Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #121212;
+            --panel: #1e1e1e;
+            --up: #00ff41; /* Hijau Matrix/Pixel */
+            --down: #ff3131; /* Merah Pixel */
+            --gold: #ffd700;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #e0e0e0;
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 15px;
+            font-size: 8px; /* Ukuran font pixel kecil agar muat di HP */
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            border-bottom: 4px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo { font-size: 12px; color: var(--gold); }
+
+        /* --- MARKET SUMMARY PANEL --- */
+        .market-card {
+            background: var(--panel);
+            border: 3px solid #333;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        .price-big { font-size: 18px; margin: 10px 0; color: var(--up); }
+        
+        /* --- SKILL/ASSET TABLE --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th { text-align: left; color: #888; padding-bottom: 10px; font-size: 6px; }
+        
+        td { padding: 12px 0; border-bottom: 2px solid #333; }
+
+        .symbol { color: var(--gold); }
+        .trend-up { color: var(--up); }
+        .trend-down { color: var(--down); }
+
+        /* --- BUTTONS --- */
+        .btn-tab {
+            display: inline-block;
+            padding: 8px;
+            background: #333;
+            margin-right: 5px;
+            border: 2px solid #000;
+            color: white;
+            text-decoration: none;
+            font-size: 6px;
+        }
+
+        .active { background: var(--gold); color: black; }
+
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Market Overview</h1>
-        <input type="text" id="search" placeholder="Search for stocks..." />
-        <div class="mode-toggle">
-            <button id="toggle-mode">Toggle Dark/Light Mode</button>
-        </div>
-    </header>
+    <div class="header">
+        <div class="logo">ZEANO FINANCE v1.0</div>
+        <p style="color: #666;">Market Insights & Portfolio</p>
+    </div>
 
-    <main>
-        <section class="hero">
-            <div class="market-summary">
-                <div class="summary-card">
-                    <h2>Market Cap</h2>
-                    <p>$30 Trillion</p>
-                </div>
-                <div class="summary-card">
-                    <h2>Gainers</h2>
-                    <p>+12%</p>
-                </div>
-                <div class="summary-card">
-                    <h2>Losers</h2>
-                    <p>-8%</p>
-                </div>
-            </div>
-            <div class="stock-ticker">
-                <p>Stock Ticker: AAPL +1.5% | TSLA -0.5% | AMZN +2.3%</p>
+    <div class="market-card">
+        <div>GOLD / XAUUSD</div>
+        <div class="price-big">$2,345.67</div>
+        <div class="trend-up">▲ +1.24% (TODAY)</div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <a href="#" class="btn-tab active">PORTFOLIO</a>
+        <a href="#" class="btn-tab">SKILL TREE</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ASSET/SKILL</th>
+                <th>LEVEL</th>
+                <th>CHG%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="symbol">BTC</span> Mining</td>
+                <td>LVL 85</td>
+                <td class="trend-up">+5.2%</td>
+            </tr>
+            <tr>
+                <td><span class="symbol">XAU</span> Analysis</td>
+                <td>LVL 72</td>
+                <td class="trend-up">+12.1%</td>
+            </tr>
+            <tr>
+                <td><span class="symbol">WEB</span> Dev</td>
+                <td>LVL 40</td>
+                <td class="trend-down">-0.5%</td>
+            </tr>
+            <tr>
+                <td><span class="symbol">RBX</span> Design</td>
+                <td>LVL 66</td>
+                <td class="trend-up">+2.4%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 30px; text-align: center; color: #444; font-size: 6px;">
+        Data updated: <span id="time"></span><br>
+        © 2026 ZEANO_GEO_PROJECTS
+    </div>
+
+    <script>
+        // Menampilkan waktu real-time sederhana
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').innerText = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+
+</body>
+                    </html>                <p>Stock Ticker: AAPL +1.5% | TSLA -0.5% | AMZN +2.3%</p>
             </div>
         </section>
 
